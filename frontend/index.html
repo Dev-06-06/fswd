@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor's Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>My Portfolio</h1>
+
+    <div id="summary-container">
+        </div>
+
+    <div id="buy-stock-container">
+        <h2>Buy Stock</h2>
+        <form id="buy-stock-form">
+            <input type="text" id="ticker-input" placeholder="Ticker Symbol (e.g., RELIANCE.NS)" required>
+            <input type="number" id="quantity-input" placeholder="Quantity" min="1" required>flas
+            <button type="submit">Buy</button>
+        </form>
+    </div>
+    
+    <div id="chart-container">
+        <canvas id="portfolio-pie-chart"></canvas>
+    </div>
+
+    <div id="portfolio-container">
+        <p>Loading portfolio...</p>
+    </div>
+
+    <div id="sell-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2>Sell Shares</h2>
+            <form id="sell-stock-form">
+                <p>Selling: <strong id="sell-ticker"></strong></p>
+                <p>Currently owned: <span id="current-quantity"></span></p>
+                <input type="number" id="sell-quantity-input" placeholder="Quantity to sell" min="1" required>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-confirm">Confirm Sell</button>
+                    <button type="button" class="btn-cancel" onclick="closeSellModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
